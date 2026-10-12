@@ -4,6 +4,7 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var hbs = require('hbs');
+var cors = require('cors');
 
 // Connect to database
 require('./app_api/models/db');
@@ -32,6 +33,11 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/travel', travelRouter);
+
+// Allow Angular application to access the API
+app.use('/api', cors({
+  origin: 'http://localhost:4200'
+}));
 
 // Wire up API routes
 app.use('/api', apiRouter);
