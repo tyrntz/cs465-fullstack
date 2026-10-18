@@ -30,10 +30,13 @@
       <strong>Description:</strong> {{ trip.description }}
     </p>
 
-    <a [routerLink]="['/edit-trip', trip.code]"
-       class="btn btn-warning mt-3">
-      Edit Trip
-    </a>
+    <a
+  *ngIf="isLoggedIn()"
+  [routerLink]="['/edit-trip', trip.code]"
+  class="btn btn-warning mt-3"
+>
+  Edit Trip
+</a>
 
   </div>
 </div>

@@ -9,9 +9,10 @@ import { TripList } from './trip-list/trip-list';
 import { TripCard } from './trip-card/trip-card';
 import { AddTrip } from './add-trip/add-trip';
 import { EditTrip } from './edit-trip/edit-trip';
+import { Login } from './login/login';
 
 @NgModule({
-  declarations: [App, TripList, TripCard, AddTrip, EditTrip],
+  declarations: [App, TripList, TripCard, AddTrip, EditTrip, Login],
   imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [provideBrowserGlobalErrorListeners(), provideHttpClient()],
   bootstrap: [App],

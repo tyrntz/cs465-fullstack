@@ -1,4 +1,3 @@
-
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
   <div class="container">
     <a class="navbar-brand" routerLink="/">
@@ -6,14 +5,43 @@
     </a>
 
     <div class="navbar-nav">
-      <a class="nav-link" routerLink="/" routerLinkActive="active"
-         [routerLinkActiveOptions]="{ exact: true }">
+      <a
+        class="nav-link"
+        routerLink="/"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }"
+      >
         Trip Listing
       </a>
 
-      <a class="nav-link" routerLink="/add-trip" routerLinkActive="active">
+      <a
+        *ngIf="isLoggedIn()"
+        class="nav-link"
+        routerLink="/add-trip"
+        routerLinkActive="active"
+      >
         Add Trip
       </a>
+    </div>
+
+    <div class="navbar-nav ms-auto">
+      <a
+        *ngIf="!isLoggedIn()"
+        class="nav-link"
+        routerLink="/login"
+        routerLinkActive="active"
+      >
+        Login
+      </a>
+
+      <button
+        *ngIf="isLoggedIn()"
+        type="button"
+        class="btn btn-outline-light"
+        (click)="logout()"
+      >
+        Logout
+      </button>
     </div>
   </div>
 </nav>

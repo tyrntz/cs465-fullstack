@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Trip } from '../trip';
+import { AuthenticationService } from '../services/authentication';
 
 @Component({
   selector: 'app-trip-card',
@@ -9,4 +10,12 @@ import { Trip } from '../trip';
 })
 export class TripCard {
   @Input() trip!: Trip;
+
+  constructor(
+    public authenticationService: AuthenticationService
+  ) {}
+
+  public isLoggedIn(): boolean {
+    return this.authenticationService.isLoggedIn();
+  }
 }
